@@ -1,40 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ArchiveLogo from '../assets/The_Archive_WHITE-removebg-preview.png';
+import GowRagnarok from '../assets/GOW RAGNAROK.jpg';
+import GowLogo from '../assets/GOD OF WAR LOGO.png';
+import GowWalkthrough from '../assets/GOD OF WAR WALKTHROUGH.png';
+import DadAndBoy from '../assets/DAD AND BOY.jpeg';
+import KratosVThor from '../assets/KRATOS V THOR.png';
+import SubtleBg from '../assets/1296116.jpg';
 
 const SecretFilesPage = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Navigation Bar */}
-      <nav className="bg-black px-6 py-4 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center">
-            <img src="/src/assets/The_Archive_WHITE-removebg-preview.png" alt="The Archive" className="h-8" />
-          </div>
-          <div className="flex space-x-8">
-            <Link to="/" className="text-white hover:text-red-500 transition-colors">HOME</Link>
-            <Link to="/news" className="text-white hover:text-red-500 transition-colors">NEWS</Link>
-            <Link to="/matches" className="text-white hover:text-red-500 transition-colors">MATCHES</Link>
-            <Link to="/patch-digest" className="text-white hover:text-red-500 transition-colors">PATCH DIGEST</Link>
-            <Link to="/secret-files" className="text-red-500 font-bold">SECRET FILES</Link>
+      {/* Snowy Blue Themed Header Navigation */}
+      <nav className="bg-gradient-to-r from-blue-900 to-slate-800 border-b-2 border-blue-700 shadow-md">
+        <div className="max-w-7xl mx-auto px-6 py-5">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center">
+              <img src={ArchiveLogo} alt="The Archive" className="h-20" />
+            </Link>
+            <div className="flex space-x-10 text-base font-bold uppercase tracking-wider">
+              <Link to="/" className="text-white hover:text-cyan-300 transition-colors">HOME</Link>
+              <Link to="/news" className="text-white hover:text-cyan-300 transition-colors">NEWS</Link>
+              <Link to="/matches" className="text-white hover:text-cyan-300 transition-colors">MATCHES</Link>
+              <Link to="/patch-digest" className="text-white hover:text-cyan-300 transition-colors">PATCH DIGEST</Link>
+              <Link to="/secret-files" className="text-cyan-300 font-extrabold">SECRET FILES</Link>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section with Background */}
-      <div 
-        className="relative min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url('/src/assets/Secret Files.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      {/* Hero Section with Layered Backgrounds */}
+      <div className="relative min-h-screen">
+        {/* Subtle Background Layer - increased opacity */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-35"
+          style={{ backgroundImage: `url(${SubtleBg})` }}
+        ></div>
+        
+        {/* Walkthrough Background Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${GowWalkthrough})` }}
+        ></div>
+        
+        {/* Dark Overlay - slightly reduced for more visibility */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 py-16">
-          {/* Main Header */}
+          {/* Main Header with Logo */}
           <div className="mb-12">
+            <img 
+              src={GowLogo} 
+              alt="God of War Logo" 
+              className="h-32 w-auto mb-6"
+            />
             <h1 className="text-5xl font-bold text-blue-400 mb-8">
               GOD OF WAR<br />RAGNARÖK
             </h1>
             <div className="bg-blue-900 inline-block px-4 py-2 rounded text-white font-bold">
-              COMPLETE GUIDE<br />& WALKTHROUGH
+              COMPLETE GUIDE<br />
+              & WALKTHROUGH
             </div>
           </div>
 
@@ -63,14 +90,14 @@ const SecretFilesPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <img 
-                src="/src/assets/Secret Files.jpg" 
-                alt="God of War Scene 1" 
-                className="rounded-lg w-full"
+                src={DadAndBoy} 
+                alt="Kratos and Atreus" 
+                className="rounded-lg w-full object-cover h-64"
               />
               <img 
-                src="/src/assets/Secret Files.jpg" 
-                alt="God of War Scene 2" 
-                className="rounded-lg w-full"
+                src={GowRagnarok} 
+                alt="God of War Ragnarok" 
+                className="rounded-lg w-full object-cover h-64"
               />
             </div>
           </div>
@@ -98,9 +125,9 @@ const SecretFilesPage = () => {
               </p>
               
               <img 
-                src="/src/assets/Secret Files.jpg" 
-                alt="Tyr Secret" 
-                className="rounded-lg w-full mb-6"
+                src={DadAndBoy} 
+                alt="Tyr Secret - Kratos and Atreus" 
+                className="rounded-lg w-full mb-6 object-cover h-80"
               />
             </div>
 
@@ -126,9 +153,9 @@ const SecretFilesPage = () => {
               </p>
               
               <img 
-                src="/src/assets/Secret Files.jpg" 
-                alt="Mjolnir Secret" 
-                className="rounded-lg w-full mb-6"
+                src={KratosVThor} 
+                alt="Kratos vs Thor" 
+                className="rounded-lg w-full mb-6 object-cover h-80"
               />
             </div>
 
@@ -149,27 +176,53 @@ const SecretFilesPage = () => {
               </p>
               
               <img 
-                src="/src/assets/Secret Files.jpg" 
+                src={GowRagnarok} 
                 alt="Past Echoes" 
-                className="rounded-lg w-full mb-6"
+                className="rounded-lg w-full mb-6 object-cover h-80"
               />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-black py-12 border-t border-gray-800">
+      {/* Black Footer with Blue Accent */}
+      <footer className="bg-black border-t-4 border-blue-600 py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-center space-y-6">
-            <img src="/src/assets/The_Archive_WHITE-removebg-preview.png" alt="The Archive" className="h-8" />
-            <div className="flex space-x-8">
-              <Link to="/" className="text-gray-400 hover:text-white transition-colors">HOME</Link>
-              <Link to="/news" className="text-gray-400 hover:text-white transition-colors">NEWS</Link>
-              <Link to="/matches" className="text-gray-400 hover:text-white transition-colors">MATCHES</Link>
-              <Link to="/patch-digest" className="text-gray-400 hover:text-white transition-colors">PATCH DIGEST</Link>
-              <Link to="/secret-files" className="text-gray-400 hover:text-white transition-colors">SECRET FILES</Link>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div className="md:col-span-2">
+              <Link to="/" className="inline-block mb-6">
+                <img src={ArchiveLogo} alt="The Archive" className="h-12" />
+              </Link>
+              <p className="text-gray-400 leading-relaxed max-w-md">
+                The Archive - Your source for esports news, match coverage, game updates, and hidden secrets.
+              </p>
             </div>
+
+            <div>
+              <h3 className="text-white font-bold text-lg mb-4">QUICK LINKS</h3>
+              <nav className="flex flex-col space-y-3">
+                <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors">Home</Link>
+                <Link to="/news" className="text-gray-400 hover:text-blue-400 transition-colors">News</Link>
+                <Link to="/matches" className="text-gray-400 hover:text-blue-400 transition-colors">Matches</Link>
+                <Link to="/patch-digest" className="text-gray-400 hover:text-blue-400 transition-colors">Patch Digest</Link>
+                <Link to="/secret-files" className="text-gray-400 hover:text-blue-400 transition-colors">Secret Files</Link>
+              </nav>
+            </div>
+
+            <div>
+              <h3 className="text-white font-bold text-lg mb-4">CREDITS</h3>
+              <div className="text-gray-400 space-y-2">
+                <p className="font-semibold text-white">Created by:</p>
+                <p>Rolan Brixx S. Semilla</p>
+                <p className="text-sm pt-2">INF222 - Web Development</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              © {currentYear} The Archive. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
